@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# git
+
+git branch -a 查看当前所有分支
+git checkout -b xxx 创建 xxx 分支并进入
+git push origin xxx 将 xxx 分支推到远程仓库
+git branch --set-upstream-to=origin/xxx 将本地 xxx 分支与远程分支进行关联
