@@ -51,3 +51,12 @@ git branch -a 查看当前所有分支
 git checkout -b xxx 创建 xxx 分支并进入
 git push origin xxx 将 xxx 分支推到远程仓库
 git branch --set-upstream-to=origin/xxx 将本地 xxx 分支与远程分支进行关联
+
+# mock 数据
+
+npm i json-server -g
+json-server --watch db.json
+项目中
+yarn add json-server -D
+echo "{user: []}" > **json_server_mock**/db.json
+package.json/scripts add "server: json-server **json_server_mock** --watch --prot 8080"
