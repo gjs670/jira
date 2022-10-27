@@ -47,16 +47,27 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # git
 
+```js
 git branch -a 查看当前所有分支
 git checkout -b xxx 创建 xxx 分支并进入
 git push origin xxx 将 xxx 分支推到远程仓库
 git branch --set-upstream-to=origin/xxx 将本地 xxx 分支与远程分支进行关联
+git config --global user.name "gjs670"
+git config --global user.email "670482987@qq.com"
+git clean -d -fx  删除没有git add 的文件
+git branch -d xxx  删除本地分支
+git branch -D xxx  强制删除本地分支
+git push origin --delete xxx 删除远程分支
+git merge xxx 将xxx分支合并到当前分支
+```
 
 # mock 数据
 
+```js
 npm i json-server -g
 json-server --watch db.json
 项目中
 yarn add json-server -D
 echo "{user: []}" > **json_server_mock**/db.json
 package.json/scripts add "server: json-server **json_server_mock** --watch --prot 8080"
+```
