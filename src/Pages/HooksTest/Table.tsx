@@ -1,4 +1,19 @@
-function Table({ list, users }) {
+import { User } from "./Search";
+
+interface List {
+  id: number;
+  name: string;
+  personId: number;
+  organization: string;
+  created?: number;
+}
+
+interface TableProps {
+  list: List[];
+  users: User[];
+}
+
+function Table({ list, users }: TableProps) {
   return (
     <table>
       <thead>

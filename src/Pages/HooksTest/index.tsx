@@ -14,7 +14,7 @@ function HooksTest() {
   });
   const [list, setList] = useState([]);
   const [users, setUsers] = useState([]);
-  const debounceParams = useDebounce(params, 1000);
+  const debounceParams = useDebounce(params, 300);
 
   useEffect(() => {
     fetch(`${apiUrl}/projects?${qs.stringify(cleanData(debounceParams))}`).then(

@@ -1,4 +1,18 @@
-function Search({ params, setParams, users }) {
+export interface User {
+  id: number;
+  name: string;
+}
+
+interface SearchProps {
+  params: {
+    name: string;
+    personId: string;
+  };
+  setParams: (params: SearchProps["params"]) => void;
+  users: User[];
+}
+
+function Search({ params, setParams, users }: SearchProps) {
   return (
     <form>
       <div>
