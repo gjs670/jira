@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export const useMount = (callback: () => void) => {
-  return useEffect(() => {
-    callback();
-  }, []);
-};
+// export const useMount = (cb: () => void) => {
+//   return useEffect(() => {
+//     cb();
+//   }, []);
+// };
 
 // 泛型
 // function fn<V>() {}   const fn = <V>() => {}

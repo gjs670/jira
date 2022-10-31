@@ -1,9 +1,9 @@
 import { FormEvent } from "react";
-const apiUrl = process.env.REACT_APP_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Login() {
   const login = (parmas: { username: string; password: string }) => {
-    fetch(`${apiUrl}/login`, {
+    fetch(`${apiUrl}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,9 +28,9 @@ function Login() {
       </p>
       <p>
         <label htmlFor="password">密码</label>
-        <input type="password" id={"password"} />
+        <input type="password" id={"password"} autoComplete="off" />
       </p>
-      <button type="submit">确认</button>
+      <button type="submit">注册</button>
     </form>
   );
 }

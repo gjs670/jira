@@ -3,7 +3,7 @@ import { cleanData } from "utils";
 import Search from "./Search";
 import Table from "./Table";
 import qs from "qs";
-import { useMount, useDebounce } from "../../utils/customHook";
+import { useDebounce } from "../../utils/customHook";
 
 const apiUrl = process.env.REACT_APP_URL;
 
@@ -26,13 +26,13 @@ function HooksTest() {
     );
   }, [debounceParams]);
 
-  useMount(() => {
+  useEffect(() => {
     fetch(`${apiUrl}/users`).then(async (res) => {
       if (res.ok) {
         setUsers(await res.json());
       }
     });
-  });
+  }, []);
 
   return (
     <div>

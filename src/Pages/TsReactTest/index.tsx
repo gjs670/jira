@@ -1,4 +1,4 @@
-import { useArray, useMount } from "utils/customHook";
+import { useArray } from "utils/customHook";
 
 export const TsReactTest = () => {
   const persons: { name: string; age: number }[] = [
@@ -7,11 +7,11 @@ export const TsReactTest = () => {
   ];
 
   const { value, add, removeIndex, clear } = useArray(persons);
-  useMount(() => {
-    // console.log(value.todo)
-    // console.log(add{ name: 'david' })
-    // console.log(removeIndex('123'))
-  });
+  // useEffect(() => {
+  // console.log(value.todo)
+  // console.log(add{ name: 'david' })
+  // console.log(removeIndex('123'))
+  // });
 
   return (
     <div>
