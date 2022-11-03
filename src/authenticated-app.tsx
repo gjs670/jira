@@ -1,0 +1,12 @@
+import { useAuth } from "context/auth-context";
+import HooksTest from "Pages/HooksTest";
+
+export const AuthenticatedApp = () => {
+  const { logout } = useAuth();
+  return (
+    <div>
+      <button onClick={logout}>登出</button>
+      <HooksTest />
+    </div>
+  );
+};

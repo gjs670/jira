@@ -1,15 +1,13 @@
-import React from "react";
-import "./App.css";
-// import HooksTest from "Pages/HooksTest";
-// import { TsReactTest } from "Pages/TsReactTest";
-import Login from "Pages/Login";
+import { AuthenticatedApp } from "authenticated-app";
+import { useAuth } from "context/auth-context";
+import { UnauthenticatedApp } from "unauthenticated-app";
 
 function App() {
+  const { user } = useAuth();
+
   return (
     <div className="App">
-      {/* <HooksTest />
-      <TsReactTest /> */}
-      <Login />
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </div>
   );
 }

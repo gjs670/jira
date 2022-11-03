@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { cleanData } from "utils";
 import Search from "./Search";
 import Table from "./Table";
-import qs from "qs";
 import { useDebounce } from "../../utils/customHook";
-
-const apiUrl = process.env.REACT_APP_URL;
+import { useHttp } from "utils/http";
 
 function HooksTest() {
   const [params, setParams] = useState({
@@ -15,23 +13,14 @@ function HooksTest() {
   const [list, setList] = useState([]);
   const [users, setUsers] = useState([]);
   const debounceParams = useDebounce(params, 300);
+  const request = useHttp();
 
   useEffect(() => {
-    fetch(`${apiUrl}/projects?${qs.stringify(cleanData(debounceParams))}`).then(
-      async (res) => {
-        if (res.ok) {
-          setList(await res.json());
-        }
-      }
-    );
+    request("projects", { data: cleanData(debounceParams) }).then(setList);
   }, [debounceParams]);
 
   useEffect(() => {
-    fetch(`${apiUrl}/users`).then(async (res) => {
-      if (res.ok) {
-        setUsers(await res.json());
-      }
-    });
+    request("users").then(setUsers);
   }, []);
 
   return (
