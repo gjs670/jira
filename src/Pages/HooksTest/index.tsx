@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { cleanData } from "utils";
 import Search from "./Search";
-import Table from "./Table";
+import HookTable from "./HookTable";
 import { useDebounce } from "../../utils/customHook";
 import { useHttp } from "utils/http";
 
@@ -26,7 +26,7 @@ function HooksTest() {
   return (
     <div>
       <Search params={params} setParams={setParams} users={users} />
-      <Table list={list} users={users} />
+      <HookTable list={list} users={users} />
     </div>
   );
 }

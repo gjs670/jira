@@ -1,3 +1,5 @@
+import { Form, Input, Select } from "antd";
+
 export interface User {
   id: number;
   name: string;
@@ -15,9 +17,9 @@ interface SearchProps {
 
 function Search({ params, setParams, users }: SearchProps) {
   return (
-    <form>
+    <Form>
       <div>
-        <input
+        <Input
           type="text"
           value={params.name}
           onChange={(e) =>
@@ -27,24 +29,24 @@ function Search({ params, setParams, users }: SearchProps) {
             })
           }
         />
-        <select
+        <Select
           value={params.personId}
-          onChange={(e) =>
+          onChange={(value) =>
             setParams({
               ...params,
-              personId: e.target.value,
+              personId: value,
             })
           }
         >
-          <option value={""}>负责人</option>
+          <Select.Option value={""}>负责人</Select.Option>
           {users.map((user) => (
-            <option key={user.id} value={user.id}>
+            <Select.Option key={user.id} value={user.id}>
               {user.name}
-            </option>
+            </Select.Option>
           ))}
-        </select>
+        </Select>
       </div>
-    </form>
+    </Form>
   );
 }
 

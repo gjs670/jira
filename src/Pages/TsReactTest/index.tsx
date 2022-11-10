@@ -7,11 +7,6 @@ export const TsReactTest = () => {
   ];
 
   const { value, add, removeIndex, clear } = useArray(persons);
-  // useEffect(() => {
-  // console.log(value.todo)
-  // console.log(add{ name: 'david' })
-  // console.log(removeIndex('123'))
-  // });
 
   return (
     <div>
