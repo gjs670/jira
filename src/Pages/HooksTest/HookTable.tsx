@@ -1,24 +1,16 @@
 import { User } from "./Search";
 import { Table } from "antd";
+import dayjs from "dayjs";
+import { TableProps } from "antd/es/table";
 
-interface List {
-  id: number;
-  name: string;
-  personId: number;
-  organization: string;
-  created?: number;
-}
-
-interface TableProps {
-  list: List[];
+interface ListProps extends TableProps<any> {
   users: User[];
 }
 
-function HookTable({ list, users }: TableProps) {
+function HookTable({ users, ...props }: ListProps) {
   return (
     <Table
       pagination={false}
-      dataSource={list}
       columns={[
         {
           title: "名称",
@@ -26,6 +18,10 @@ function HookTable({ list, users }: TableProps) {
           sorter: (a, b) => {
             return a.name.localeCompare(b.name);
           },
+        },
+        {
+          title: "部门",
+          dataIndex: "organization",
         },
         {
           title: "负责人",
@@ -37,7 +33,20 @@ function HookTable({ list, users }: TableProps) {
             );
           },
         },
+        {
+          title: "创建时间",
+          render(value, project) {
+            return (
+              <span>
+                {project.created
+                  ? dayjs(project.created).format("YYYY-MM-DD")
+                  : "无"}
+              </span>
+            );
+          },
+        },
       ]}
+      {...props}
     ></Table>
   );
 }

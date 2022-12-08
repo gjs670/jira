@@ -17,11 +17,12 @@ interface SearchProps {
 
 function Search({ params, setParams, users }: SearchProps) {
   return (
-    <Form>
-      <div>
+    <Form style={{ marginBottom: "2rem" }} layout={"inline"}>
+      <Form.Item>
         <Input
           type="text"
           value={params.name}
+          placeholder={"项目名"}
           onChange={(e) =>
             setParams({
               ...params,
@@ -29,6 +30,8 @@ function Search({ params, setParams, users }: SearchProps) {
             })
           }
         />
+      </Form.Item>
+      <Form.Item>
         <Select
           value={params.personId}
           onChange={(value) =>
@@ -45,7 +48,7 @@ function Search({ params, setParams, users }: SearchProps) {
             </Select.Option>
           ))}
         </Select>
-      </div>
+      </Form.Item>
     </Form>
   );
 }
